@@ -1,15 +1,32 @@
 addNoteButton = document.querySelector(".add-note-button");
 noteList = document.querySelector(".notes-list");
+notePreview = document.querySelector(".note-preview");
 noteTitle = document.querySelector(".note-title");
 noteBody = document.querySelector(".note-body");
+
 
 var notes = [];
 var selectedNote = notes[0];
 
 function selectNote(note){
-    selectedNote = note.id;
-    noteTitle.value = note.title;
-    noteBody.value = note.body;
+    if (note){
+        selectedNote = note.id;
+
+        for (const noteItem of noteList.querySelectorAll(".note-item")){
+            if (noteItem.dataset.noteId == selectedNote){
+                noteItem.classList.add("note-item-selected")
+            } else {
+                noteItem.classList.remove("note-item-selected")
+            }
+        }
+
+        notePreview.style.visibility = "visible";
+        noteTitle.value = note.title;
+        noteBody.value = note.body;
+    } else {
+        notePreview.style.visibility = "hidden";
+    }
+    
 }
 
 function refreshNotes() {
@@ -36,6 +53,7 @@ function deleteNote(noteItem) {
         return (i.id != noteItem.dataset.noteId);
     })));
     refreshNotes();
+    selectNote(notes[0]);
 }
 
 function addNote() {
@@ -67,11 +85,11 @@ addNoteButton.addEventListener("click", ()=>{
     addNote();
 });
 
-noteTitle.addEventListener("blur", ()=>{
+noteTitle.addEventListener("change", ()=>{
     saveNote();
 });
 
-noteBody.addEventListener("blur", ()=>{
+noteBody.addEventListener("change", ()=>{
     saveNote();
 });
 
