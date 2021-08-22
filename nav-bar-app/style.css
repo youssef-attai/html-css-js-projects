@@ -14,11 +14,13 @@ body {
 .container > li {
   list-style: none;
   padding: 5px;
+  transition: all 0.5s;
   background-color: rgb(120, 120, 221);
   color: rgb(240, 230, 100);
 }
 
 .container > li:hover {
+  padding: 8px;
   background-color: rgb(71, 71, 160);
 }
 
