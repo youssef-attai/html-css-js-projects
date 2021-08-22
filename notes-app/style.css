@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+*::selection {
+  background-color: #aaaaaa;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+}
+
+.notes-sidebar {
+  padding: 10px;
+  border-right: 2px solid #dddddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0.3;
+}
+
+.note-preview {
+  width: 100%;
+  padding: 10px;
+  flex: 1;
+}
+
+.note-item {
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+}
+
+.note-item:hover {
+  background-color: #dddddd;
+}
+
+.note-item-title {
+  font-size: 1rem;
+  padding: 5px;
+}
+
+.note-item-body {
+  padding: 5px;
+  font-size: 0.8rem;
+}
+
+.note-item-time {
+  padding: 5px;
+  font-size: 0.6rem;
+  align-self: flex-end;
+}
+
+input {
+  border: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  display: block;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+textarea {
+  border: 0;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  user-select: none;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  padding: 15px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #44dd;
+  color: white;
+}
+
+button:hover {
+  background-color: rgb(40, 40, 194);
+  color: #dddddd;
+}
